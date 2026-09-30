@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Exam Login</title>
+</head>
+<body>
+
+<h2>Online Exam Login</h2>
+
+<form onsubmit="return validate()">
+
+    Student ID:
+    <input type="text" id="studentid"><br><br>
+
+    Password:
+    <input type="password" id="password"><br><br>
+
+    <button type="submit">Login</button>
+
+</form>
+
+<p id="msg" style="color:red;"></p>
+
+<script>
+function validate() {
+
+    let studentid = document.getElementById("studentid").value;
+    let password = document.getElementById("password").value;
+    let message = document.getElementById("msg");
+
+    // Check empty fields
+    if (studentid == "" || password == "") {
+        message.innerHTML = "Please fill all fields";
+        return false;
+    }
+
+    // Check student ID
+    if (studentid.length < 5) {
+        message.innerHTML = "Enter valid Student ID";
+        return false;
+    }
+
+    // Check password
+    if (password.length < 6) {
+        message.innerHTML = "Password must be at least 6 characters";
+        return false;
+    }
+
+    message.style.color = "green";
+    message.innerHTML = "Login successful!";
+    return false;
+}
+</script>
+
+</body>
+</html>

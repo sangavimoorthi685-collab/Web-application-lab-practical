@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Feedback Form</title>
+</head>
+<body>
+
+<h2>College Feedback Form</h2>
+
+<form onsubmit="return validate()">
+
+    Name:
+    <input type="text" id="name"><br><br>
+
+    Email:
+    <input type="text" id="email"><br><br>
+
+    Feedback:
+    <textarea id="feedback"></textarea><br><br>
+
+    <button type="submit">Submit Feedback</button>
+
+</form>
+
+<p id="msg" style="color:red;"></p>
+
+<script>
+function validate() {
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let feedback = document.getElementById("feedback").value;
+    let message = document.getElementById("msg");
+
+    // Check empty fields
+    if (name == "" || email == "" || feedback == "") {
+        message.innerHTML = "All fields are required";
+        return false;
+    }
+
+    // Check email
+    if (!email.includes("@")) {
+        message.innerHTML = "Enter a valid email";
+        return false;
+    }
+
+    // Check feedback length
+    if (feedback.length < 10) {
+        message.innerHTML = "Feedback must contain at least 10 characters";
+        return false;
+    }
+
+    message.style.color = "green";
+    message.innerHTML = "Feedback submitted successfully!";
+    return false;
+}
+</script>
+
+</body>
+</html>

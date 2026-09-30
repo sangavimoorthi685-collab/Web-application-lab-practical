@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shopping List</title>
+</head>
+<body>
+
+<h2>Shopping List</h2>
+
+<input type="text" id="item" placeholder="Enter item">
+
+<button onclick="addItem()">Add Item</button>
+
+<ul id="list"></ul>
+
+<script>
+function addItem() {
+
+    let input = document.getElementById("item");
+
+    if (input.value == "") {
+        alert("Please enter an item");
+        return;
+    }
+
+    let li = document.createElement("li");
+
+    li.innerHTML = input.value;
+
+    document.getElementById("list").appendChild(li);
+
+    input.value = "";
+}
+</script>
+
+</body>
+</html>

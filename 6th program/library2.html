@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>React Employee</title>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f5f9;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .card {
+            background-color: white;
+            width: 400px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            color: #2563eb;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .count {
+            font-size: 35px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        button {
+            padding: 10px 18px;
+            margin: 5px;
+            border: none;
+            border-radius: 6px;
+            background-color: #2563eb;
+            color: white;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+function Employee(props) {
+
+    const [salary, setSalary] = React.useState(20000);
+
+    function increase() {
+        setSalary(salary + 1000);
+    }
+
+    function decrease() {
+        setSalary(salary - 1000);
+    }
+
+    function reset() {
+        setSalary(20000);
+    }
+
+    return (
+        <div className="card">
+
+            <h2>Employee Information</h2>
+
+            <p><b>Name:</b> {props.name}</p>
+            <p><b>Department:</b> {props.department}</p>
+            <p><b>Experience:</b> {props.experience}</p>
+
+            <hr />
+
+            <h2>Salary</h2>
+
+            <p className="count">₹{salary}</p>
+
+            <button onClick={increase}>Increase</button>
+            <button onClick={decrease}>Decrease</button>
+            <button onClick={reset}>Reset</button>
+
+        </div>
+    );
+}
+
+function App() {
+
+    return (
+        <div>
+
+            <h1>React Employee Application</h1>
+
+            <Employee
+                name="Sangavi"
+                department="Computer Science"
+                experience="2 Years"
+            />
+
+        </div>
+    );
+}
+
+const root = ReactDOM.createRoot(
+    document.getElementById("root")
+);
+
+root.render(<App />);
+
+</script>
+
+</body>
+</html>

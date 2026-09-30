@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Text</title>
+</head>
+<body>
+
+<h2 id="heading">Welcome to My Web Page</h2>
+
+<button onclick="changeText()">Change Text</button>
+
+<script>
+function changeText() {
+    let heading = document.getElementById("heading");
+
+    heading.innerHTML = "Text Changed Successfully!";
+}
+</script>
+
+</body>
+</html>

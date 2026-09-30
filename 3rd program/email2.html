@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration</title>
+</head>
+<body>
+
+<h2>Student Registration Form</h2>
+
+<form onsubmit="return validate()">
+
+    Name:
+    <input type="text" id="name"><br><br>
+
+    Age:
+    <input type="text" id="age"><br><br>
+
+    Course:
+    <input type="text" id="course"><br><br>
+
+    <button type="submit">Register</button>
+
+</form>
+
+<p id="msg" style="color:red;"></p>
+
+<script>
+function validate() {
+
+    let name = document.getElementById("name").value;
